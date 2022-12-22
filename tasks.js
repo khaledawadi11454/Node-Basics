@@ -1,4 +1,14 @@
-
+//command "help",that list all the possible coammand
+function help(){
+  console.log(
+    'function startApp() for welcome application \n'+
+    'function onDataReceived() for any input for each user\n'+
+    'function unknownCommand()\n'+
+    'function quit() for quit\n'+
+    'function hello() for saying hello\n'+
+    'Starting application'
+    )
+}
 /**
  * Starts the application
  * This is the function that is run when the app starts
@@ -34,7 +44,7 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  if (text === 'quit\n' || text=='exit\n') {
+  if (text === 'quit\n' || text==='exit\n') {
     quit();
   }
   else if(text === 'hello\n'){
@@ -82,3 +92,4 @@ function quit(){
 
 // The following line starts the application
 startApp("khaled awad")
+
