@@ -48,8 +48,11 @@ function onDataReceived(text) {
     quit();
   }
   else if(text === 'hello\n'){
-    hello();
+    hello(text);
   }
+  else if(text.split(" ")[0] === 'hello'){
+    hello(text);
+  } 
   else{
     unknownCommand(text);
   }
@@ -73,10 +76,18 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+function hello(data){
+  console.log('hello!\n')
 }
+function hello(data){
+  data = data.replace('\n', '').trim();
+  let allWords = data.split(' ');
 
+  if (allWords[0] === 'hello') {
+    let v = allWords.slice(1).join(' ');
+    console.log("Hello " + v + "!");
+  }
+}
 
 /**
  * Exits the application
