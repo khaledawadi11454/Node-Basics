@@ -20,6 +20,9 @@ function help(){
  * @param  {string} name the name of the app
  * @returns {void}
  */
+
+
+console.log(list);
 function startApp(name){
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
@@ -54,11 +57,18 @@ function onDataReceived(text) {
   else if(text.split(" ")[0] === 'hello'){
     hello(text);
   } 
+  else if (text ==="list\n"){
+    list();
+  }
+  else if (text ==="add\n" || text.split(" ")[0] === 'add'){
+    add(text);
+  }
   else{
     unknownCommand(text);
   }
 }
 
+let liste=["1-khaled","2-awad"];
 
 /**
  * prints "unknown command"
@@ -70,6 +80,33 @@ function onDataReceived(text) {
 function unknownCommand(c){
   console.log('unknown command: "'+c.trim()+'"')
 }
+//list function 
+function list(){
+ 
+  for(let i=0;i<=liste.length-1;i++){
+    
+    console.log(liste[i]);
+  } 
+}
+
+// add
+function add(data) {
+
+  data = data.replace('\n', '').trim();
+  let allWords = data.split(' ');
+
+  if (allWords[0] =='add') {
+    let v = allWords.slice(1).join(' ');
+
+  // if (!data) {
+  //   console.error("Error: No data provided");
+  //   return;
+  
+  liste.push(v);
+  console.log(liste[2]);
+  
+}}
+//remove
 
 
 /**
