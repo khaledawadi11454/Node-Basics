@@ -6,6 +6,7 @@ function help(){
     'function unknownCommand()\n'+
     'function quit() for quit\n'+
     'function hello() for saying hello\n'+
+    "function hello (data)"+
     'Starting application'
     )
 }
