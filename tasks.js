@@ -77,12 +77,18 @@ function onDataReceived(text) {
   else if (text === 'edit\n'){
     console.log('Error');
   }
+  else if(text.startsWith("check")){
+    check(text);
+  }
+  else if(text==='check\n'){
+    console.log("error");
+  }
   else{
     unknownCommand(text);
   }
 }
 
-let liste=["1-khaled","2-awad"];
+let liste=["[ ]khaled","[ ]awad"];
 
 /**
  * prints "unknown command"
@@ -116,7 +122,7 @@ function add(data) {
   //   console.error("Error: No data provided");
   //   return;
   
-  liste.push(v);
+  liste.push(`[ ]${v}`);
   console.log(liste[2]);
   
 }}
@@ -131,7 +137,7 @@ function remove(data) {
     liste.splice(v-1,1);
 }
 }
-//edit function
+//Edit function
 function edit(data){
   data = data.replace('\n', '').trim()
   const arry = data.split(' ');
@@ -160,6 +166,14 @@ function edit(data){
 else{
   console.log("error")
 }
+}
+//function check
+function check(data){
+  data = data.replace('check ','' ).trim()
+  index=data.split(" ")[0]-1;
+  liste[index]=liste[index].replace(" ","✓")
+
+
 }
 /**
  * Says hello
