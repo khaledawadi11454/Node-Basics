@@ -8,6 +8,7 @@ function help(){
     'function hello() for saying hello\n'+
     "function hello (data)"+
     "function remove(data)"+
+    "function check"+
     'Starting application'
     )
 }
