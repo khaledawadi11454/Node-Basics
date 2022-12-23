@@ -85,7 +85,7 @@ function hello(data){
 
   if (allWords[0] === 'hello') {
     let v = allWords.slice(1).join(' ');
-    console.log("Hello " + v + "!");
+    console.log("Hello" + v + "!");
   }
 }
 
