@@ -71,6 +71,12 @@ function onDataReceived(text) {
   else if ( text.split(" ")[0] === 'remove'){
     remove(text);
   }
+  else if ( text.split(" ")[0] === 'edit'){
+    edit(text);
+  }
+  else if (text === 'edit\n'){
+    console.log('Error');
+  }
   else{
     unknownCommand(text);
   }
@@ -123,6 +129,36 @@ function remove(data) {
   if (allWords[0] =='remove') {
     let v = allWords.slice(1).join(' ');
     liste.splice(v-1,1);
+}
+}
+//edit function
+function edit(data){
+  data = data.replace('\n', '').trim()
+  const arry = data.split(' ');
+  if (arry[0] === 'edit') {
+  const secondword = arry.slice(1,2).join(' ');
+  let pars = parseInt(secondword);
+
+
+  if(arry.length>2){
+    const thirdword = arry.slice(2).join(' ');
+    if( isNaN(secondword)== false && secondword<=liste.length){
+    liste[pars-1]=thirdword;
+    }
+    else{console.log("Error does not exist!");
+  }
+  }
+  else if (arry.length=2){
+
+  liste.splice(liste.length-1);
+
+
+  liste.push(secondword);
+  
+
+  }}
+else{
+  console.log("error")
 }
 }
 /**
