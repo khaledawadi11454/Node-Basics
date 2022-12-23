@@ -63,6 +63,13 @@ function onDataReceived(text) {
   else if (text ==="add\n" || text.split(" ")[0] === 'add'){
     add(text);
   }
+  else if(text ==="remove\n" ){
+    liste.pop();
+
+  }
+  else if ( text.split(" ")[0] === 'remove'){
+    remove(text);
+  }
   else{
     unknownCommand(text);
   }
@@ -108,7 +115,15 @@ function add(data) {
 }}
 //remove
 
+function remove(data) {
+  data = data.replace('\n', '').trim();
+  let allWords = data.split(' ');
 
+  if (allWords[0] =='remove') {
+    let v = allWords.slice(1).join(' ');
+    liste.splice(v-1,1);
+}
+}
 /**
  * Says hello
  *
